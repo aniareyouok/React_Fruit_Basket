@@ -7,7 +7,17 @@ button {
     border-radius: 2px;
     border: 1px solid darkgrey;
     color: darkgrey;
+    box-shadow: 2px 2px 5px 0 darkgrey;
 }
+
+.reset button {
+    width: 65px;
+    background-color: darkorange;
+    color: black;
+    border: 1px solid darkorange;
+    cursor: pointer;
+}
+
 
 .fruitCounter {
     margin: 5px;
