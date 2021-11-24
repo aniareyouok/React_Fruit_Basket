@@ -1,3 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    width: 100%;
+    font-family: Corbel
+
+}
 
 button {
     width: 25px;
@@ -10,26 +27,41 @@ button {
     box-shadow: 2px 2px 5px 0 darkgrey;
 }
 
-.reset button {
-    width: 65px;
-    background-color: darkorange;
-    color: black;
-    border: 1px solid darkorange;
-    cursor: pointer;
-}
-
-
-.fruitCounter {
+.fruitbasket {
     margin: 5px;
-    padding: 5px;
-    width: 250px;
+    padding: 20px;
+    width: 280px;
     border: 2px solid darkgrey;
     border-radius: 2px;
     background-color: #f5eda4;
+    font-family: "Ink Free";
     
     display: flex;
     flex-direction: column;
-    justify-content: right;
-    align-items: flex-end;
-
+    justify-content: center;
+    align-items: flex-start;
 }
+
+.counter {
+    border-bottom: 2px dotted black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reset {
+    width: 100%;
+}
+
+.reset button {
+    width: 65px;
+    background-color: #f59b2e;
+    color: black;
+    border: 1px solid darkorange;
+    cursor: pointer;
+    margin-top: 20px;
+    float: right;
+}
+
+
