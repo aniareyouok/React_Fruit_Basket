@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Counter from "./component/Counter";
-import ResetButton from "./component/ResetButton";
+import Button from "./component/Button";
 import OrderForm from "./component/OrderForm";
 
 function App() {
@@ -18,13 +18,6 @@ function App() {
         setKiwi(0);
     }
 
-
-    // function handleSubmit(e) {
-//     console.log(`Naam: ${state.nameValue} Leeftijd: ${state.ageValue} Opmerking: ${state.messageValue}`);
-//     e.preventDefault();
-//
-// }
-
     return (
         <>
             <div className="wrapper">
@@ -34,32 +27,35 @@ function App() {
                     <div className="counters">
                         <h2>Mijn fruitmandje</h2>
                         <Counter
-                            icon="🍓   "
+                            icon="🍓"
                             fruit="Aardbeien"
                             count={strawberry}
                             setCount={setStrawberry}
                         />
                         <Counter
-                            icon="🍌   "
+                            icon="🍌"
                             fruit="Bananen"
                             count={banana}
                             setCount={setBanana}
                         />
                         <Counter
-                            icon="🍎   "
+                            icon="🍎"
                             fruit="Appelen"
                             count={apple}
                             setCount={setApple}
                         />
                         <Counter
-                            icon="🥝   "
+                            icon="🥝"
                             fruit="Kiwi's"
                             count={kiwi}
                             setCount={setKiwi}
                         />
                     </div>
-                    <ResetButton
+                    <Button
+                        className="reset"
+                        type="button"
                         onClick={reset}
+                        btn_message="Reset"
                     />
                 </div>
                 <div className="orderform">
