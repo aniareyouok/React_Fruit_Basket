@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import Counter from "./component/Counter";
 import ResetButton from "./component/ResetButton";
+import OrderForm from "./component/OrderForm";
 
 function App() {
 
@@ -26,58 +27,45 @@ function App() {
 
     return (
         <>
+            <div className="wrapper">
 
-        <div className="fruitbasket">
-            <h1>Fruitmand bezorgservice</h1>
-            <div className="counters">
-                <h2>Mijn fruitmandje</h2>
-                <Counter
-                    icon="🍓   "
-                    fruit="Aardbeien"
-                    count={strawberry}
-                    setCount={setStrawberry}
-                />
-                <Counter
-                    icon="🍌   "
-                    fruit="Bananen"
-                    count={banana}
-                    setCount={setBanana}
-                />
-                <Counter
-                    icon="🍎   "
-                    fruit="Appelen"
-                    count={apple}
-                    setCount={setApple}
-                />
-                <Counter
-                    icon="🥝   "
-                    fruit="Kiwi's"
-                    count={kiwi}
-                    setCount={setKiwi}
-                />
+                <div className="fruitbasket">
+                    <h1>Fruitmand bezorgservice</h1>
+                    <div className="counters">
+                        <h2>Mijn fruitmandje</h2>
+                        <Counter
+                            icon="🍓   "
+                            fruit="Aardbeien"
+                            count={strawberry}
+                            setCount={setStrawberry}
+                        />
+                        <Counter
+                            icon="🍌   "
+                            fruit="Bananen"
+                            count={banana}
+                            setCount={setBanana}
+                        />
+                        <Counter
+                            icon="🍎   "
+                            fruit="Appelen"
+                            count={apple}
+                            setCount={setApple}
+                        />
+                        <Counter
+                            icon="🥝   "
+                            fruit="Kiwi's"
+                            count={kiwi}
+                            setCount={setKiwi}
+                        />
+                    </div>
+                    <ResetButton
+                        onClick={reset}
+                    />
+                </div>
+                <div className="orderform">
+                    <OrderForm>Doet ie het?</OrderForm>
+                </div>
             </div>
-                <ResetButton
-                    onClick={reset}
-                />
-        </div>
-
-            {/*<div className="form_container">*/}
-                {/*<form>*/}
-                {/*    <fieldset>*/}
-                {/*        <label htmlFor="customerName">Name: </label>*/}
-                {/*        <input*/}
-                {/*        type="text"*/}
-                {/*        id="customerName"*/}
-                {/*        value={e.target.value}*/}
-                {/*        setValue={()=> {setValue(e.target.value)};*/}
-                {/*        />*/}
-                {/*        <label htmlFor="customerName">Name: </label>*/}
-                {/*        <input*/}
-                {/*            type="text"*/}
-                {/*            id="customerName"*/}
-                {/*        />*/}
-                {/*    </fieldset>*/}
-                {/*</form>*/}
 
 
         </>
