@@ -8,16 +8,27 @@ function OrderForm() {
         surname: "",
         age: 0,
         zip: "",
+        Frequency: "",
+        Delivery_time: "",
         message: "",
     })
+
+    const [checkedTerms, toggleCheckedTerms] = useState(false);
+
+    const [clicked, toggleClicked] = useState(false);
 
     function handleChange(e) {
         const value = e.target.value;
         setState({...state,[e.target.name]:value});
     }
 
+    function handleClick() {
+        console.log(`De knop is succesvol aangeklikt.`);
+        toggleClicked(!clicked);
+    }
+
     function onSubmit(e) {
-        console.log(`Naam: ${state.name} Achternaam: ${state.surname} Age: ${state.age} Zip: ${state.zip} Message: ${state.message}`);
+        console.log(`Naam: ${state.name} Achternaam: ${state.surname} Age: ${state.age} Zip: ${state.zip} Frequency: ${state.Frequency} Delivery_time: ${state.Delivery_time} Message: ${state.message} Agrees_to_terms_of_conditions: ${checkedTerms}`);
         e.preventDefault();
     }
 
@@ -99,7 +110,9 @@ function OrderForm() {
                     <input
                         type="checkbox"
                         id="terms_of_conditions"
-                        name="Agrees to terms of conditions?"
+                        name="Agrees_to_terms_of_conditions?"
+                        checked={checkedTerms}
+                        onChange={() => toggleCheckedTerms(!checkedTerms)}
                     />
                     <label htmlFor="terms_of_conditions"> Ik ga akkoord met de voorwaarden</label>
                 </span>
@@ -109,6 +122,8 @@ function OrderForm() {
                         type="submit"
                         id="submit_button"
                         btn_message="Versturen"
+                        disabled={!checkedTerms}
+                        onClick={handleClick}
                     />
                 </span>
 
