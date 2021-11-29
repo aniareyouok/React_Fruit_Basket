@@ -5,11 +5,13 @@ import Button from "./component/Button";
 
 function App() {
 
+    //FRUIT BASKET COUNTER STATE
     const [strawberry, setStrawberry] = useState(0)
     const [banana, setBanana] = useState(0)
     const [apple, setApple] = useState(0)
     const [kiwi, setKiwi] = useState(0)
 
+    //COUNTER RESET BUTTON
     function reset() {
         setStrawberry(0);
         setBanana(0);
@@ -17,6 +19,7 @@ function App() {
         setKiwi(0);
     }
 
+    //ORDER FORM STATE
     const [state, setState] = useState({
         name: "",
         surname: "",
@@ -25,21 +28,26 @@ function App() {
         message: "",
     })
 
+    //SET STATE FOR NAME, SURNAME, AGE, ZIP and MESSAGE IN ORDER FORM
     function handleChange(e) {
         const value = e.target.value;
         setState({...state, [e.target.name]: value});
     }
 
+    //STATE FOR FREQUENCY, TERMS AND SUBMIT BUTTON
     const [delivery_time, setDelivery_time] = useState(false)
     const [frequency, setFrequency] = useState("");
     const [checkedTerms, toggleCheckedTerms] = useState(false);
     const [clicked, toggleClicked] = useState(false);
 
+
+    //CLICKING SUBMIT BUTTON
     function handleClick() {
         console.log(`Bestelling is verstuurd!`);
         toggleClicked(!clicked);
     }
 
+    //SENDING FORM
     function onSubmit(e) {
         console.log(`
             Naam: ${state.name} 
@@ -66,6 +74,7 @@ function App() {
         <>
             <div className="wrapper">
 
+                {/*FRUIT COUNTERS*/}
                 <div className="fruitbasket">
                     <h1>Fruitmand bezorgservice</h1>
                     <div className="counters">
@@ -103,9 +112,12 @@ function App() {
                         disabled={false}
                     />
                 </div>
+
+                {/*ORDER FORM*/}
                 <div className="orderform">
                     <form onSubmit={onSubmit}>
                         <h3>Bestel gegevens</h3>
+
                         <label htmlFor="firstname_input">Voornaam:</label>
                         <input
                             type="text"
@@ -114,6 +126,7 @@ function App() {
                             value={state.name}
                             onChange={handleChange}
                         />
+
                         <label htmlFor="surname_input">Achternaam:</label>
                         <input
                             type="text"
@@ -122,6 +135,7 @@ function App() {
                             value={state.surname}
                             onChange={handleChange}
                         />
+
                         <label htmlFor="age_input">Leeftijd:</label>
                         <input
                             type="number"
@@ -130,6 +144,7 @@ function App() {
                             value={state.age}
                             onChange={handleChange}
                         />
+
                         <label htmlFor="zipcode_input">Postcode:</label>
                         <input
                             type="text"
@@ -138,6 +153,7 @@ function App() {
                             value={state.zip}
                             onChange={handleChange}
                         />
+
                         <label htmlFor="frequency_dropdown">Bezorgfrequentie</label>
                         <select
                             name="Frequency"
@@ -152,60 +168,59 @@ function App() {
                         </select>
 
                         <span className="delivery_time_buttons">
-                <label htmlFor="daytime">Overdag</label>
-                <input
-                    type="radio"
-                    id="daytime"
-                    name="Delivery_time"
-                    value="overdag"
-                    onChange={(e) => setDelivery_time(e.target.value)}
-                />
-                <label htmlFor="evening">'sAvonds</label>
-                <input
-                    type="radio"
-                    id="evening"
-                    name="Delivery_time"
-                    value="avond"
-                    onChange={(e) => setDelivery_time(e.target.value)}
-                />
-                </span>
+                            <label htmlFor="daytime">Overdag</label>
+                            <input
+                                type="radio"
+                                id="daytime"
+                                name="Delivery_time"
+                                value="overdag"
+                                onChange={(e) => setDelivery_time(e.target.value)}
+                            />
+                            <label htmlFor="evening">'sAvonds</label>
+                            <input
+                                type="radio"
+                                id="evening"
+                                name="Delivery_time"
+                                value="avond"
+                                onChange={(e) => setDelivery_time(e.target.value)}
+                            />
+                        </span>
 
-                        <label htmlFor="message_input">Opmerkingen:</label>
-                        <textarea
-                            id="message_input"
-                            cols="27"
-                            name="message"
-                            rows="4"
-                            value={state.message}
-                            onChange={handleChange}
-                        />
+                            <label htmlFor="message_input">Opmerkingen:</label>
+                            <textarea
+                                id="message_input"
+                                name="message"
+                                cols="27"
+                                rows="4"
+                                value={state.message}
+                                onChange={handleChange}
+                            />
 
                         <span className="terms_of_conditions">
-                    <input
-                        type="checkbox"
-                        id="terms_of_conditions"
-                        name="Agrees_to_terms_of_conditions?"
-                        checked={checkedTerms}
-                        onChange={() => toggleCheckedTerms(!checkedTerms)}
-                    />
-                    <label htmlFor="terms_of_conditions"> Ik ga akkoord met de voorwaarden</label>
-                </span>
-                        <span className="submit_button">
-                    <Button
-                        className="submit_button"
-                        type="submit"
-                        id="submit_button"
-                        btn_message="Versturen"
-                        disabled={!checkedTerms}
-                        onClick={handleClick}
-                    />
-                </span>
+                            <input
+                                type="checkbox"
+                                id="terms_of_conditions"
+                                name="Agrees_to_terms_of_conditions?"
+                                checked={checkedTerms}
+                                onChange={() => toggleCheckedTerms(!checkedTerms)}
+                            />
+                            <label htmlFor="terms_of_conditions"> Ik ga akkoord met de voorwaarden</label>
+                        </span>
 
+                        <span className="submit_button">
+                            <Button
+                                className="submit_button"
+                                type="submit"
+                                id="submit_button"
+                                btn_message="Versturen"
+                                disabled={!checkedTerms}
+                                onClick={handleClick}
+                            />
+                        </span>
 
                     </form>
                 </div>
             </div>
-
 
         </>
     );
