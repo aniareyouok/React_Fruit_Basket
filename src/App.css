@@ -108,6 +108,10 @@ select {
     align-items: center;
 }
 
+form textarea {
+    resize: none;
+}
+
 .terms_of_conditions {
 font-size: small;
 
